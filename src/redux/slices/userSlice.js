@@ -1,21 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-
 const initialState = {
     firstname: '',
     lastname: '',
+    details: {},
+    accessToken: null,
 }
 
 export const userSilce = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        setFirstName: (state, action) => state.firstname = action.payload.firstname,
-        setLastName: (state, action) => state.lastname = action.payload.lastname
+        userDetails: (state, action) => { state.details = action.payload },
+        setAccessToken: (state, action) => { state.accessToken = action.payload }
     }
 })
 
 // Action creators are generated for each case reducer function
-export const { setFirstName, setLastName } = userSilce.actions
+export const { userDetails, setAccessToken } = userSilce.actions
 
 export default userSilce.reducer

@@ -1,5 +1,5 @@
 import Login from './login';
-import SignUp from './signup';
+import SignUp from './Register';
 import Home from './home';
 
 export {
