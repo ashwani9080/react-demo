@@ -1,6 +1,6 @@
 import { Suspense, useEffect } from 'react';
-import { BrowserRouter as Router, Switch } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux'
+import { BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
+import { useSelector } from 'react-redux'
 
 import ProtectedRoutes from './protected/protectedRoutes';
 import PublicRoute from './publicRoute';
@@ -8,13 +8,15 @@ import PrivateRoute from './privateRoute';
 import { Login, SignUp } from '../screens';
 
 const Routes = () => {
-    let isAuthenticated = null;
-    const accessToken = useSelector((state) => state.userSlice?.accessToken)
-    const dispatch = useDispatch();
+    const accessToken = useSelector((state) => state?.userSlice?.accessToken)
 
-    useEffect(() => {
-        isAuthenticated = accessToken;
-    }, [accessToken,dispatch])
+    const isAuthenticated = () => {
+        if (accessToken) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     return (
         <Router>

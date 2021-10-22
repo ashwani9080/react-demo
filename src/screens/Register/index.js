@@ -20,13 +20,14 @@ const SignUp = () => {
 
     return (
         <div className={styles.container}>
+            <div>Register</div>
             <form
                 onSubmit={handleSubmit(onSubmit)}>
-                <input {...register("username", { required: true, maxLength: 20 })} />
-                <input {...register("password", { pattern: /^[A-Za-z]+$/i })} />
+                <input {...register("username")} />
+                <input {...register("password")} />
                 <input type="submit" />
             </form>
-            <Link to="/login">Login</Link>     
+            <Link to="/login">Login</Link>
         </div>)
 }
 

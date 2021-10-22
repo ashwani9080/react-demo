@@ -6,7 +6,7 @@ function PrivateRoute({ children, isAuthenticated, ...rest }) {
       {...rest}
       render={
         ({ location }) => (
-          isAuthenticated
+          isAuthenticated()
             ? (
               children
             ) : (

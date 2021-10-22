@@ -7,7 +7,7 @@ const initialState = {
     accessToken: null,
 }
 
-export const userSilce = createSlice({
+export const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
@@ -17,6 +17,6 @@ export const userSilce = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { userDetails, setAccessToken } = userSilce.actions
+export const { userDetails, setAccessToken } = userSlice.actions
 
-export default userSilce.reducer
+export default userSlice.reducer
