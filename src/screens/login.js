@@ -21,9 +21,9 @@ const Login = () => {
     )
 
     return (
-        <div>
+        <div >
             <div>LOGIN</div>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form style={{ display: "flex", flexDirection: 'column' }} onSubmit={handleSubmit(onSubmit)}>
                 <input  {...register("username")} />
                 <input  {...register("password")} />
                 <input type="submit" />

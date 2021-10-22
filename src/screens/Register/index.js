@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { useForm } from "react-hook-form";
 
 import { userDetails } from '../../redux/slices/userSlice';
-import styles from './styles.css'
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
@@ -19,9 +18,10 @@ const SignUp = () => {
     }
 
     return (
-        <div className={styles.container}>
+        <div>
             <div>Register</div>
             <form
+                style={{ display: "flex", flexDirection: 'column' }}
                 onSubmit={handleSubmit(onSubmit)}>
                 <input {...register("username")} />
                 <input {...register("password")} />

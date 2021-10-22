@@ -1,4 +1,4 @@
-import { Suspense, useEffect } from 'react';
+import { Suspense, useCallback } from 'react';
 import { BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux'
 
@@ -10,13 +10,13 @@ import { Login, SignUp } from '../screens';
 const Routes = () => {
     const accessToken = useSelector((state) => state?.userSlice?.accessToken)
 
-    const isAuthenticated = () => {
+    const isAuthenticated = useCallback(() => {
         if (accessToken) {
             return true;
         } else {
             return false;
         }
-    }
+    }, [accessToken])
 
     return (
         <Router>
