@@ -2,13 +2,13 @@ import { Suspense, useCallback } from 'react';
 import { BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux'
 
-import ProtectedRoutes from './protected/protectedRoutes';
+import ProtectedRoutes from './protected';
 import PublicRoute from './publicRoute';
 import PrivateRoute from './privateRoute';
 import { Login, SignUp } from '../screens';
 
 const Routes = () => {
-    const accessToken = useSelector((state) => state?.userSlice?.accessToken)
+    const accessToken = useSelector((state) => state?.persistedSlice?.accessToken)
 
     const isAuthenticated = useCallback(() => {
         if (accessToken) {
@@ -42,7 +42,6 @@ const Routes = () => {
                     >
                         <ProtectedRoutes />
                     </PrivateRoute>
-                    <Redirect from="*" to="/" />
                 </Switch>
             </Suspense>
         </Router>

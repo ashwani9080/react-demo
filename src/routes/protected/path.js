@@ -6,8 +6,7 @@ const routes = [
         component: lazy(() => import('../../screens/home')),
         exact: true
     },
-    
-    
+
 ];
 
 export default routes;

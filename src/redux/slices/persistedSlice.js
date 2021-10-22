@@ -1,15 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = {
+export const INITIAL_PERSISTED_STATE = {
     firstname: '',
     lastname: '',
     details: {},
     accessToken: null,
 }
 
-export const userSlice = createSlice({
-    name: 'user',
-    initialState,
+export const persistedSlice = createSlice({
+    name: 'persistedSlice',
+    initialState: INITIAL_PERSISTED_STATE,
     reducers: {
         userDetails: (state, action) => { state.details = action.payload },
         setAccessToken: (state, action) => { state.accessToken = action.payload }
@@ -17,6 +17,6 @@ export const userSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { userDetails, setAccessToken } = userSlice.actions
+export const { userDetails, setAccessToken } = persistedSlice.actions
 
-export default userSlice.reducer
+export default persistedSlice.reducer

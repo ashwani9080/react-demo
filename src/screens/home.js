@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-import { setAccessToken } from '../redux/slices/userSlice'
+import { setAccessToken } from '../redux/slices/persistedSlice'
 
 const Home = () => {
     const dispatch = useDispatch();

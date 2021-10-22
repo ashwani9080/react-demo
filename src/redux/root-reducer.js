@@ -1,9 +1,9 @@
 import {combineReducers} from 'redux';
 
 import counterSlice from './slices/counterSlice';
-import userSlice from './slices/userSlice';
+import persistedSlice from './slices/persistedSlice';
 
 export default combineReducers({
   counterSlice,
-  userSlice,
+  persistedSlice,
 });

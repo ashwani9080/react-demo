@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from 'react-redux';
 import { useForm } from "react-hook-form";
 
-import { userDetails } from '../../redux/slices/userSlice';
+import { userDetails } from '../../redux/slices/persistedSlice';
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
