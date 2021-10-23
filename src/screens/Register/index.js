@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { registerUserConfig } from '../../utils/api';
 import { setLoading } from '../../redux/slices/sessionSlice';
-
+import './styles.css'
 
 const SignUp = () => {
     const dispatch = useDispatch();
@@ -40,11 +40,11 @@ const SignUp = () => {
         <div>
             <div>Register</div>
             <form
-                style={{ display: "flex", flexDirection: 'column' }}
+                style={{ display: "flex", flexDirection: 'column',justifyContent:"center" }}
                 onSubmit={handleSubmit(onSubmit)}>
-                <input {...register("email")} />
-                <input {...register("password")} />
-                <input type="submit" />
+                <input className="input" {...register("email")} />
+                <input className="input" {...register("password")} />
+                <input className="button" type="submit" />
             </form>
             <Link to="/login">Login</Link>
         </div>)

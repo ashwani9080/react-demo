@@ -4,9 +4,10 @@ import { useDispatch } from 'react-redux'
 import { Link } from "react-router-dom";
 import useAxios from 'axios-hooks';
 
-import { setAccessToken } from '../redux/slices/persistedSlice';
-import { setLoading } from '../redux/slices/sessionSlice';
-import { loginConfig } from '../utils/api';
+import { setAccessToken } from '../../redux/slices/persistedSlice';
+import { setLoading } from '../../redux/slices/sessionSlice';
+import { loginConfig } from '../../utils/api';
+import './styles.css'
 
 const Login = () => {
     const dispatch = useDispatch();
@@ -34,7 +35,7 @@ const Login = () => {
             setLoginError(error?.response?.data?.errorName)
             dispatch(setLoading(false))
         }
-    }, [error?.response?.data?.errorName,loginError])
+    }, [error?.response?.data?.errorName, loginError])
 
     useEffect(() => {
         dispatch(setLoading(loading))
@@ -42,17 +43,18 @@ const Login = () => {
 
 
     return (
-        <div >
+        <div>
             <div>LOGIN</div>
             <form style={{ display: "flex", flexDirection: 'column' }}
                 onSubmit={handleSubmit(onSubmit)}>
-                <input  {...register("email")} />
-                <input  {...register("password")} />
-                <input type="submit" />
+                <input className="input" {...register("email")} />
+                <input className="input" {...register("password")} />
+                <input className="button" type="submit" />
             </form>
             < Link to="/register">Register</Link>
         </div >)
 }
+
 
 export default Login;
 
