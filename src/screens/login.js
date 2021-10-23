@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from 'react-redux'
 import { Link } from "react-router-dom";
@@ -10,6 +10,7 @@ import { loginConfig } from '../utils/api';
 
 const Login = () => {
     const dispatch = useDispatch();
+    const [loginError, setLoginError] = useState();
     const { register, handleSubmit, watch } = useForm();
     const [{ data: loginData, loading, error }, executeLogin] = useAxios(loginConfig)
 
@@ -29,9 +30,11 @@ const Login = () => {
     }, [loginData])
 
     useEffect(() => {
-        dispatch(setLoading(false))
-        console.log(error)
-    }, [error])
+        if (error) {
+            setLoginError(error?.response?.data?.errorName)
+            dispatch(setLoading(false))
+        }
+    }, [error?.response?.data?.errorName,loginError])
 
     useEffect(() => {
         dispatch(setLoading(loading))
@@ -47,8 +50,8 @@ const Login = () => {
                 <input  {...register("password")} />
                 <input type="submit" />
             </form>
-            <Link to="/register">Register</Link>
-        </div>)
+            < Link to="/register">Register</Link>
+        </div >)
 }
 
 export default Login;
