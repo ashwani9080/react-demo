@@ -1,5 +1,5 @@
 import { Suspense, useCallback } from 'react';
-import { BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import { useSelector } from 'react-redux'
 
 import ProtectedRoutes from './protected';
