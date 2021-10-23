@@ -1,13 +1,10 @@
-import EndPoint from '../config';
+import { BASE_URL } from '../config';
 
 export const loginConfig = ({
-    url: `${EndPoint.DEV.BASE_URL}/login`,
+    url: `${BASE_URL}/login`,
     method: 'POST',
 })
-// export const registerUserConfig = () => ({
-//     url: `${EndPoint.DEV.BASE_URL}/adduser`,
-//     method: 'POST',
-//     headers: {
-//         'Content-Type': 'application/json',
-//     },
-// })
+export const registerUserConfig = ({
+    url: `${BASE_URL}/adduser`,
+    method: 'POST',
+})

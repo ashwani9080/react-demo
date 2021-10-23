@@ -10,9 +10,8 @@ import { loginConfig } from '../utils/api';
 
 const Login = () => {
     const dispatch = useDispatch();
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const [{ data: loginData, loading, error }, executeLogin] =
-        useAxios(loginConfig, { manual: true })
+    const { register, handleSubmit, watch } = useForm();
+    const [{ data: loginData, loading, error }, executeLogin] = useAxios(loginConfig)
 
     const onSubmit = useCallback(
         (data) => {
@@ -31,6 +30,7 @@ const Login = () => {
 
     useEffect(() => {
         dispatch(setLoading(false))
+        console.log(error)
     }, [error])
 
     useEffect(() => {
