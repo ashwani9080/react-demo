@@ -43,7 +43,7 @@ const Login = () => {
 
 
     return (
-        <div>
+        <div className="container">
             <div>LOGIN</div>
             <form style={{ display: "flex", flexDirection: 'column' }}
                 onSubmit={handleSubmit(onSubmit)}>

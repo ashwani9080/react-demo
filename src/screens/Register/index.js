@@ -37,7 +37,7 @@ const SignUp = () => {
     }, [loading])
 
     return (
-        <div>
+        <div className="container">
             <div>Register</div>
             <form
                 style={{ display: "flex", flexDirection: 'column',justifyContent:"center" }}
