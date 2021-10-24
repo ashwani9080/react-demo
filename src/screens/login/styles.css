@@ -12,9 +12,10 @@
 }
 
 .container {
+    display: flex;
     background-color: #ffffff;
-    padding: 100px;
     color: #000;
     font-family: 'Courier New', Courier, monospace;
     border-radius: 10px;
+    justify-content: center;
 }

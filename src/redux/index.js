@@ -1,10 +1,11 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, applyMiddleware } from '@reduxjs/toolkit';
 import {
   persistStore,
   persistReducer,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { composeWithDevTools } from 'redux-devtools-extension'
+import logger from 'redux-logger'
+import thunk from 'redux-thunk'
 
 import reducer from './root-reducer';
 
@@ -13,12 +14,11 @@ const persistConfig = {
   storage: storage,
   whitelist: ['persistedSlice'],
 };
-
 const persistedSlice = persistReducer(persistConfig, reducer);
 
 const store = configureStore({
   reducer: persistedSlice,
-  composeWithDevTools
+  middleware: [thunk, logger]
 });
 
 const persistor = persistStore(store);

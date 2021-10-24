@@ -14,7 +14,7 @@ const SignUp = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const { register, handleSubmit } = useForm();
-    const [{ data: response, loading, error: registerError }, registerService] = useAxios(registerUserConfig)
+    const [{ data: response, loading, error: registerError }, registerService] = useAxios(registerUserConfig, { manual: true })
 
     const onSubmit = data => {
         registerService({ data: { ...data } });
@@ -28,7 +28,6 @@ const SignUp = () => {
     }, [response])
 
     useEffect(() => {
-        console.log(registerError)
         dispatch(setLoading(false))
     }, [registerError])
 
@@ -38,15 +37,16 @@ const SignUp = () => {
 
     return (
         <div className="container">
-            <div>Register</div>
             <form
-                style={{ display: "flex", flexDirection: 'column',justifyContent:"center" }}
+                style={{ display: "flex", flexDirection: 'column', justifyContent: "center", alignItems: 'center' }}
                 onSubmit={handleSubmit(onSubmit)}>
+                <div>Register</div>
                 <input className="input" {...register("email")} />
                 <input className="input" {...register("password")} />
                 <input className="button" type="submit" />
+                <div style={{ fontSize: 12, margin: 10 }}>{registerError?.response?.data?.errorName}</div>
+                <Link to="/login">Login</Link>
             </form>
-            <Link to="/login">Login</Link>
         </div>)
 }
 
